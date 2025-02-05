@@ -1,5 +1,5 @@
 bankapp/__pycache__
-bankapp/migration
+bankapp/migrations
 bank/__pycache__
 bank/settings.py
 
