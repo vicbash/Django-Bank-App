@@ -4,5 +4,4 @@ bank/__pycache__
 bank/settings.py
 bank/__init__.py
 bank/asgi.py
-wsgi.py
 
