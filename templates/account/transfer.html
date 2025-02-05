@@ -1,0 +1,59 @@
+{% extends 'account/base1.html'%}
+{% load static %}
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <title>Transfer</title>
+</head>
+<body>
+    <style>
+        input{
+            width: 60%;
+        }
+    </style>
+<a href="{% url 'dashboard' %}" class="btn btn-primary mt-3">
+    <i class="bi bi-arrow-left fs-5 text-light"></i>
+</a>
+<br>
+<br>
+
+{% for message in messages %}
+<p id="messages alert" class="alert-success">{{message}}</p>
+{% endfor %}
+<div class="container">
+    <div class="d-flex justify-content-center">
+        <div class="card ">
+            <div class="card-body">
+                <form method="post" action="{% url 'transfer_view' %}">
+                    {% csrf_token %}
+                    <div class="d-flex justify-content-center">
+                        <h4 class="text-primary fw-5">TRANSFER</h4><br>
+                    </div>
+                    <label for="receiver_account_number">Beneficiary Account Number:</label>
+                    <input type="text" id="receiver_account_number" class="form-control" name="receiver_account_number" required>
+                    <br>
+                    <label for="amount">Amount:</label>
+                    <input type="number" id="amount" name="amount" class="form-control" step="0.01" required>
+                    <br>
+                    <label for="pin">PIN:</label>
+                    <input type="password" id="pin" class="form-control" name="pin" maxlength="6" required>
+                    <br>
+                    <label for="description">Description:</label>
+                    <input type="text" name="description" class="form-control" id="description">
+                    <br>
+                    <div class="d-flex justify-content-center">
+                        <button class="btn btn-primary" type="submit">Transfer</button>
+                    </div>
+                </form>            
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+{% endblock content %}

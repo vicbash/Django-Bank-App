@@ -1,0 +1,98 @@
+{% extends 'account/base.html'%}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .home{
+        background-image: url("{% static '/images/211a.jpg' %}");
+        background-size:cover;
+        background-repeat: no-repeat;
+        height: 30em;
+        margin-top: 80px;
+        
+    }
+</style>
+<body>
+    <div class="container-fluid home py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-5 pt-5">
+                    <h2 class="text-primary">Welcome To <b>Pinnacle Bank</b></h2>
+                    <br>          
+                    <h5><b>Where we prioritize your financial goals with secure, personalized banking solutions designed to help you thrive.</b></h5>
+                    <br>
+                    <a href="{% url 'register' %}" class="btn bg-primary link-light">Sign-Up</a>
+                </div>
+            </div>
+        </div>   
+    </div>
+    <div class="container py-5">
+        <div class="accordion accordion-flush" id="accordionFlushExample">
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button fw-bold collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                  BENEFITS
+                </button>
+              </h2>
+              <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                <div class="accordion-body">
+                    <ul>
+                        <li>Convenient – banking can be performed from the home or office.</li>
+                        <li>Available 24 hours a day, thus extending banking hours.</li>
+                        <li>User-friendly.</li>
+                        <li>Notification of transactions via SMS and email. Prompt status update which keeps customers informed.</li>
+                        <li>Easy account management saving both time and energy</li>
+                    </ul>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button fw-bold collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                  FEATURES
+                </button>
+              </h2>
+              <div id="flush-collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                <div class="accordion-body">
+                    <ul>
+                        <li>View real-time account balances.</li>
+                        <li> View real-time transactions on your account.</li>
+                        <li>View transaction history on your account.</li>
+                        <li>Transfer money between your accounts and other accounts within and outside the bank.</li>
+                        <li>Download and print account activity and consolidated activity of all your accounts in any format.</li>
+                        <li>Order for cheque books and bank drafts. </li>
+                        <li> Make bulk payments to employees, contractors, suppliers.</li>
+                        <li>Pay bills such as DSTV and setup standing orders.</li>
+                    </ul>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button fw-bold collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+                  GETTING STARTED
+                </button>
+              </h2>
+              <div id="flush-collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                <div class="accordion-body">
+                    On successful application and after getting your logon details, as well as the basic requirements outlined below, visit our website (www.zenithbank.com) and click on Internet Banking.
+                    
+                    You need to have these basics:
+                    <ul>
+                        <li>A personal Computer or smartphone that has Internet access.</li>
+                        <li>A web browser.</li>
+                    </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+    </div>    
+</body>
+</html>
+{% endblock content %}

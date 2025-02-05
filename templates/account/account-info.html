@@ -1,0 +1,22 @@
+{% extends 'account/base1.html'%}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Info</title>
+</head>
+<body class="bg-body-tertiary">
+    <div class="container">
+        <div class="card">
+            <div class="card_body">
+                <p >{{account.account_number}}</p>
+                <br>
+                <p>{{account.pin_number}}</p><br>
+                <a href="{% url 'dashboard' %}" class="btn btn-primary">Proceed to Dashboard</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
