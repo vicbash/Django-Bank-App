@@ -25,10 +25,11 @@
 </style>
 <body>
     <div class="container">
-        {% for message in messages %}
-        <p id="messages">{{message}}</p>
-        {% endfor %}
         <div class="row" id="row" >
+            <div class="alert alert-primary alert-dismissible fade text-center show" role="alert">
+                <strong>Complete Your KYC</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"> </button>
+            </div>
             <div class="col-lg-2"></div>
             <div class="col-lg-8">
                 <div class="card">

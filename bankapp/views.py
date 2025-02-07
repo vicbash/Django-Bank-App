@@ -26,7 +26,7 @@ def register(request):
         if form.is_valid():
             email=form.cleaned_data['email']
             form.save()
-            messages.success(request,'account was created for '+email)
+            messages.success(request,'Account was created for '+email)
             return redirect('login')
         else:
             form=UserForm()
@@ -49,7 +49,7 @@ def loginpage(request):
 
             if user is not None:
                 login(request, user)
-                messages.success(request,'login successful')
+                messages.success(request,'Login Successful')
                 return redirect('dashboard')
             else:
                 messages.error(request,'Error! Invalid credential')
@@ -73,8 +73,6 @@ def dashboard(request):
     if kyc.is_kyc_complete == False:
         messages.info(request, "You need to Complete your KYC")
         return redirect ('kyc')    
-    else:
-        messages.success(request, " ")
     
     context = {
         "kyc":kyc,
@@ -85,7 +83,8 @@ def dashboard(request):
 @login_required
 def kyc_registration(request):
     user = request.user 
-    kyc = UserInfo.objects.get(user=user)           
+    kyc = UserInfo.objects.get(user=user)
+
     if request.method == "POST":
         form=UserInfoForm(request.POST, request.FILES, instance=kyc)
         if form.is_valid():
@@ -105,10 +104,10 @@ def kyc_registration(request):
             kyc.next_of_kin=form.cleaned_data['next_of_kin']
             kyc.kin_number = form.cleaned_data['kin_number']
             kyc.save()
-            messages.success(request, 'KYC Submited Successfully')
             return redirect('info')
         else:
-            print("not valid")
+            messages.error(request, 'Error Detected')
+            return redirect('kyc')
     else:
         form=UserInfoForm(instance=kyc)
     context = {
@@ -126,6 +125,8 @@ def account_info(request):
         'account':account
     }
     return render(request, 'account/account-info.html', context)
+
+
 @login_required
 def transfer_view(request):
     user = request.user
@@ -145,13 +146,13 @@ def transfer_view(request):
                 receiver_account.account_balance+= amount
                 receiver_account.save()
                 Transaction.objects.create(sender=sender_account, receiver=receiver_account, amount=amount, description=description)
-                messages.success(request, 'transfer successful')
+                messages.success(request, 'Transfer Successful')
             else:
-                messages.error(request, 'incorrect pin')
+                messages.error(request, 'Incorrect Pin')
                 return redirect (request.path)
 
         except Account.DoesNotExist:
-            messages.error(request, 'account does not exist')
+            messages.error(request, 'Account does not exist')
             return redirect (request.path)
             
     return render(request, "account/transfer.html")

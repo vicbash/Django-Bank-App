@@ -23,10 +23,13 @@
     <br>
     
     <div class="container">
-        {% for message in messages %}
-          <p id="messages alert">{{message}}</p>
-        {% endfor %}
         <div class="row">
+        {% for message in messages %}
+            <div class="alert alert-primary alert-dismissible fade text-center show" role="alert">
+                <strong>{{message}}</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"> </button>
+            </div>
+        {% endfor %}
             <div class="col-lg-4"></div>
             <div class="col-lg-4">
                 <div class="d-flex justify-content-center form_container">
