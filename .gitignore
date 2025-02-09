@@ -1,7 +1,6 @@
 bankapp/__pycache__
 bankapp/migrations
 bank/__pycache__
-bank/settings.py
 bank/__init__.py
 bank/asgi.py
 
